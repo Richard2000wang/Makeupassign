@@ -3,3 +3,52 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+
+body {
+    background-color: #C0C0C0;
+    font-family: "Quicksand", sans-serif;
+    color: #DCDCDC;
+    display: grid;
+    grid-template-areas:
+    "H H H"
+    "B B B"
+    "F F F"
+}
+
+nav {
+    grid-area: H;
+    display: flex;
+    background-color: #000000;
+    padding: 1rem 2rem;
+    justify-content: center;
+}
+
+#budget {
+    position: absolute;
+    display: flex;
+    right: 20px;
+}
+
+#totalbudget, #currentbudget{
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#totalbudget .label, #currentbudget .label {
+    color: #f4f4f4;
+    margin-right: 5px;
+}
+
+#total-budget .display,
+#current-budget .display {
+    border: 1px solid #000000;
+    box-shadow: 3px 3px 5px #000000;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: #708090;
+    background-color: #A9A9A9;
+    padding: 0.25rem 0.5rem;
+  }
