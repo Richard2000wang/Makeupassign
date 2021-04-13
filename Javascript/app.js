@@ -81,22 +81,34 @@ function renderExpenses() {
 }
 // expense button
 expenseButton.addEventListener("click", function () {
-    if (expensePrice.checkValidity()) {
-      const expenseName = expenseNameInput.value;
-      const expensePrice = expensePriceInput.value;
-      if (!expensePrice || !expenseName) return;
-      if (expensePrice > currentBudget || currentBudget === 0) {
-        showModal();
-        return;
-      }
-      expenses.push({
-        expenseName,
-        expensePrice,
-      });
-      currentBudget -= expensePrice;
-      renderOneExpense(expenseName, expensePrice);
-      updateCurrentBudget();
-      addToLocal();
+  if (expensePrice.checkValidity()) {
+    const expenseName = expenseNameInput.value;
+    const expensePrice = expensePriceInput.value;
+    if (!expensePrice || !expenseName) return;
+    if (expensePrice > currentBudget || currentBudget === 0) {
+      showModal();
+      return;
     }
-  });
-  
+    expenses.push({
+      expenseName,
+      expensePrice,
+    });
+    currentBudget -= expensePrice;
+    renderOneExpense(expenseName, expensePrice);
+    updateCurrentBudget();
+    addToLocal();
+  }
+});
+
+//Budget button
+budgetButton.addEventListener("click", function () {
+  if (!budgetInput.value) return;
+  if (budgetInput.checkValidity()) {
+    reset();
+    totalBudget = currentBudget = budgetInput.value;
+    budgetInput.value = "";
+    updateTotalBudget();
+    updateCurrentBudget();
+    addToLocal();
+  }
+});
