@@ -26,30 +26,50 @@
               </div>
           </div>
       </nav>
-
-      <main>
-          <div class="card">
-            <div class="content budget-form">
-                <h2 class="title">Create a budget</h2>
-                <label for="budget"> Your budget: </label>
-                <input
-                  id="budget"
-                  type="number"
-                  placeholder="Budget"
-                  step="1"
-                  min="1"
-                />
-                <button id="expenseButton" class="second">Add expense</button>
+    <main>
+        <div class="card">
+          <div class="content budget-form">
+            <h2 class="title">Create a budget</h2>
+            <label for="budget"> Your budget: </label>
+            <input
+              id="budget"
+              type="number"
+              placeholder="Budget"
+              step="1"
+              min="1"
+            />
+            <button id="budgetButton">Create budget</button>
+          </div>
+          <div class="content">
+            <h2 class="title">Add expense</h2>
+            <label for="budget"> Expense name: </label>
+            <input id="expenseName" type="text" placeholder="Name" />
+            <label for="budget"> Expense price: </label>
+            <input
+              id="expensePrice"
+              type="number"
+              placeholder="Price"
+              step="0.01"
+              min="0.01"
+            />
+            <button id="expenseButton" class="second">Add expense</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="title">Expenses:</h2>
+          <div class="expenses">
+            <div class="header">Name of expense:</div>
+            <div class="header">Price:</div>
+          </div>
+          <div class="expenses-content">
+          </div>
+        </div>
+      </main>
+      <div class="model hidden">
+        <div class="box">
+          <h2>Your current budget is too low</h2>
+          <button id="modelButton">Okay</button>
         </div>
       </div>
-      <div class="card">
-        <h2 class="title">Expenses:</h2>
-        <div class="expenses">
-          <div class="header">Name of expense:</div>
-          <div class="header">Price:</div>
-        </div>
-        <div class="expenses-content">
-              </div>
-          </div>
-      </main>
-  </body>
+    </body>
+  </html>

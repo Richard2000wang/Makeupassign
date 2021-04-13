@@ -24,26 +24,26 @@ nav {
     justify-content: center;
 }
 
-#budget {
+.budget {
     position: absolute;
     display: flex;
     right: 20px;
 }
 
-#totalbudget, #currentbudget{
+.totalbudget, .currentbudget{
     font-size: 1.1rem;
     display: flex;
     align-items: center;
     margin-right: 10px;
 }
 
-#totalbudget .label, #currentbudget .label {
+.totalbudget .label, .currentbudget .label {
     color: #f4f4f4;
     margin-right: 5px;
 }
 
-#total-budget .display,
-#current-budget .display {
+.total-budget .display,
+.current-budget .display {
     border: 1px solid #000000;
     box-shadow: 3px 3px 5px #000000;
     border-radius: 5px;
@@ -52,3 +52,94 @@ nav {
     background-color: #A9A9A9;
     padding: 0.25rem 0.5rem;
   }
+
+main {
+  width: 100%;
+  grid-area: B;
+  justify-self: center;
+}
+
+.card {
+  background: #A9A9A9;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+  color: #333;
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.card .title {
+  margin: 0 0 1rem;
+}
+
+.card .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .budget-form {
+    margin-bottom: 2rem;
+  }
+
+.expenses,
+.expenses-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  row-gap: 0.5rem;
+  font-size: 1.2rem;
+}
+.expenses > .header:nth-child(1) {
+  border-right: 1px solid #999;
+}
+.expenses .header {
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .model .box {
+    background: #f4f4f4;
+    color: #333;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .model .box button {
+    margin-top: 1rem;
+  }
+  .model.hidden {
+    display: none;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    nav {
+      flex-direction: column;
+      text-align: center;
+    }
+    nav h1 {
+      margin-bottom: 1rem;
+    }
+    .budget {
+      position: static;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    main {
+      padding: 0 1rem;
+    }
+  } ;
