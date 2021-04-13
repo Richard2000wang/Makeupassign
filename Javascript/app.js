@@ -8,7 +8,7 @@ const budgetButton = document.getElementById("budgetButton");
 
 //hide modal
 modalButton.addEventListener("click", function () {
-    hideModal();
+  hideModal();
 });
 
 // Variables
@@ -17,11 +17,11 @@ let totalBudget = getFromLocal()[1] || 0;
 let currentBudget = getFromLocal()[2] || 0;
 renderExpenses();
 
-//local
+//local Ask Andrel to explain again
 function addToLocal() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
   localStorage.setItem("totalBudget", totalBudget);
-  localStorage.setItem("currentBudget", currentBudget);  //Ask Andrel to explain local again
+  localStorage.setItem("currentBudget", currentBudget);
 }
 function getFromLocal() {
   const expenses = JSON.parse(localStorage.getItem("expenses"));
@@ -32,35 +32,34 @@ function getFromLocal() {
 
 //erase values
 function reset() {
-    expenses = [];
-    totalBudget = 0;
-    currentBudget = 0;
-    while (expensesElem.hasChildNodes()) {
-      expensesElem.removeChild(expensesElem.lastChild);
-    }
-    addToLocal();
+  expenses = [];
+  totalBudget = 0;
+  currentBudget = 0;
+  while (expensesElem.hasChildNodes()) {
+    expensesElem.removeChild(expensesElem.lastChild);
+  }
+  addToLocal();
 }
 
 // Add newly added expense
 function renderOneExpense(expenseName, expensePrice) {
-    const expenseNameElem = document.createElement("div");
-    expenseNameElem.classList.add("label");
-    expenseNameElem.innerText = expenseName;
-    expensesElem.appendChild(expenseNameElem);
-    const expensePriceElem = document.createElement("div");
-    expensePriceElem.classList.add("price");
-    expensePriceElem.innerText = expensePrice + "$";
-    expensesElem.appendChild(expensePriceElem);
+  const expenseNameElem = document.createElement("div");
+  expenseNameElem.classList.add("label");
+  expenseNameElem.innerText = expenseName;
+  expensesElem.appendChild(expenseNameElem); //ask tutor to explain appendChild in detail
+  const expensePriceElem = document.createElement("div");
+  expensePriceElem.classList.add("price");
+  expensePriceElem.innerText = expensePrice + "$";
+  expensesElem.appendChild(expensePriceElem);
 }
-
 
 //show and hide modal
 function showModal() {
-    document.querySelector(".modal").classList.remove("hidden");
-  }
-  function hideModal() {
-    document.querySelector(".modal").classList.add("hidden");
-  }
+  document.querySelector(".modal").classList.remove("hidden");
+}
+function hideModal() {
+  document.querySelector(".modal").classList.add("hidden");
+}
 
 // update budgets
 function updateTotalBudget() {
@@ -69,8 +68,8 @@ function updateTotalBudget() {
 }
 
 function updateCurrentBudget() {
-    document.querySelector(".current-budget .display").innerText =
-      currentBudget + "$";
+  document.querySelector(".current-budget .display").innerText =
+    currentBudget + "$";
 }
 // update expenses
 function renderExpenses() {
