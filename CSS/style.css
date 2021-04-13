@@ -51,6 +51,7 @@ nav {
     display: flex;
     background-color: #000000;
     padding: 1rem 2rem;
+    place-content: center;
 }
 
 .budget {
@@ -126,7 +127,7 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.model {
+.modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -157,9 +158,6 @@ main {
     nav {
       flex-direction: column;
       text-align: center;
-    }
-    nav h1 {
-      margin-bottom: 1rem;
     }
     .budget {
       position: static;

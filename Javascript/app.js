@@ -1,20 +1,23 @@
 const expensesElem = document.querySelector(".expenses-content");
 const expenseNameInput = document.getElementById("expenseName");
 const expensePriceInput = document.getElementById("expensePrice");
-const modelButton = document.getElementById("modelButton");
+const modalButton = document.getElementById("modalButton");
 const expenseButton = document.getElementById("expenseButton");
 const budgetInput = document.getElementById("budget");
 const budgetButton = document.getElementById("budgetButton");
 
-modelButton.addEventListener("click", function () {
-    hideModel();
+//hide modal
+modalButton.addEventListener("click", function () {
+    hideModal();
 });
 
+// Variables
 let expenses = getFromLocal()[0] || [];
 let totalBudget = getFromLocal()[1] || 0;
 let currentBudget = getFromLocal()[2] || 0;
 renderExpenses();
 
+//local
 function addToLocal() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
   localStorage.setItem("totalBudget", totalBudget);
@@ -28,13 +31,14 @@ function getFromLocal() {
 }
 
 //erase values
-function reset(){
+function reset() {
     expenses = [];
     totalBudget = 0;
     currentBudget = 0;
     while (expensesElem.hasChildNodes()) {
       expensesElem.removeChild(expensesElem.lastChild);
     }
+    addToLocal();
 }
 
 // Add newly added expense
@@ -49,13 +53,16 @@ function renderOneExpense(expenseName, expensePrice) {
     expensesElem.appendChild(expensePriceElem);
 }
 
-function showModel() {
-    document.querySelector(".model").classList.remove("hidden");
+
+//show and hide modal
+function showModal() {
+    document.querySelector(".modal").classList.remove("hidden");
   }
-  function hideModel() {
-    document.querySelector(".model").classList.add("hidden");
+  function hideModal() {
+    document.querySelector(".modal").classList.add("hidden");
   }
 
+// update budgets
 function updateTotalBudget() {
   document.querySelector(".total-budget .display").innerText =
     totalBudget + "$";
@@ -65,7 +72,7 @@ function updateCurrentBudget() {
     document.querySelector(".current-budget .display").innerText =
       currentBudget + "$";
 }
-
+// update expenses
 function renderExpenses() {
   expenses.forEach((expense) => {
     renderOneExpense(expense.expenseName, expense.expensePrice);
@@ -73,5 +80,24 @@ function renderExpenses() {
   updateTotalBudget();
   updateCurrentBudget();
 }
-
-
+// expense button
+expenseButton.addEventListener("click", function () {
+    if (expensePrice.checkValidity()) {
+      const expenseName = expenseNameInput.value;
+      const expensePrice = expensePriceInput.value;
+      if (!expensePrice || !expenseName) return;
+      if (expensePrice > currentBudget || currentBudget === 0) {
+        showModal();
+        return;
+      }
+      expenses.push({
+        expenseName,
+        expensePrice,
+      });
+      currentBudget -= expensePrice;
+      renderOneExpense(expenseName, expensePrice);
+      updateCurrentBudget();
+      addToLocal();
+    }
+  });
+  
