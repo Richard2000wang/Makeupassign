@@ -154,18 +154,39 @@ main {
     display: none;
   }
   
-  @media screen and (max-width: 1000px) {
-    nav {
-      flex-direction: column;
-      text-align: center;
-    }
-    .budget {
-      position: static;
-      justify-content: center;
-    }
+.foot {
+    display: flex;
+    background-color: #2F4F4F;
+    grid-area: F;
+    width: 100vw;
+    height: 80px;
+    
+}
+
+.font {
+    color: #DCDCDC;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    width: auto;
+    place-self: center;
+}
+
+@media screen and (max-width: 1000px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
   }
-  @media screen and (max-width: 600px) {
-    main {
-      padding: 0 1rem;
-    }
-  } ;
+  nav h1 {
+    margin-bottom: 1rem;
+  }
+  .budget {
+    position: static;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0 1rem;
+  }
+} ;
