@@ -16,6 +16,37 @@ body {
     "F F F"
 }
 
+input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 1rem;
+}
+label {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+button,
+button.second:hover {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: #696969;
+  color: #C0C0C0;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+button:hover,
+button.second {
+  background: #C0C0C0;
+  color: #696969;
+  border: 1px solid #696969;
+}
+
 nav {
     grid-area: H;
     display: flex;
