@@ -57,12 +57,12 @@ function showModel() {
   }
 
 function updateTotalBudget() {
-  document.querySelector("#total-budget .display").innerText =
+  document.querySelector(".total-budget .display").innerText =
     totalBudget + "$";
 }
 
 function updateCurrentBudget() {
-    document.querySelector("#current-budget .display").innerText =
+    document.querySelector(".current-budget .display").innerText =
       currentBudget + "$";
 }
 
