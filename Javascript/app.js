@@ -18,7 +18,7 @@ renderExpenses();
 function addToLocal() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
   localStorage.setItem("totalBudget", totalBudget);
-  localStorage.setItem("currentBudget", currentBudget);
+  localStorage.setItem("currentBudget", currentBudget);  //Ask Andrel to explain local again
 }
 function getFromLocal() {
   const expenses = JSON.parse(localStorage.getItem("expenses"));
@@ -57,12 +57,12 @@ function showModel() {
   }
 
 function updateTotalBudget() {
-  document.querySelector(".total-budget .display").innerText =
+  document.querySelector("#total-budget .display").innerText =
     totalBudget + "$";
 }
 
 function updateCurrentBudget() {
-    document.querySelector(".current-budget .display").innerText =
+    document.querySelector("#current-budget .display").innerText =
       currentBudget + "$";
 }
 
