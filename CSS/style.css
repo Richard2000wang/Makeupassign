@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     background-color: #C0C0C0;
     font-family: "Quicksand", sans-serif;
@@ -52,13 +51,11 @@ nav {
     display: flex;
     background-color: #000000;
     padding: 1rem 2rem;
-    justify-content: center;
 }
 
 .budget {
-    position: absolute;
     display: flex;
-    right: 20px;
+    justify-self: right;
 }
 
 .totalbudget, .currentbudget{
@@ -69,7 +66,7 @@ nav {
 }
 
 .totalbudget .label, .currentbudget .label {
-    color: #f4f4f4;
+    color: #C0C0C0;
     margin-right: 5px;
 }
 
